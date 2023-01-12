@@ -1,0 +1,192 @@
+@startuml
+package twisk{
+
+package monde #DDDDDD{
+abstract class Etape
+}
+
+package mondeIG{
+
+class SujetObserve {
++ SujetObserve()
++ void ajouterObservateur(Observateur v)
++ void notifierObservateurs()
+}
+
+class MondeIG extends SujetObserve{
+- int nbClients
+- double moyenneLoi
+- double ecartTypeLoi
+- String fond
++ MondeIG()
++ void initialiser()
++ boolean estSelectionnee(EtapeIG etape)
++ boolean estSelectionne(ArcIG arc)
++ boolean estSelectionne(PointDeControleIG point)
++ boolean arcEnCoursDeCreation()
++ boolean enSimulation()
++ void changerFond(String nouveauFond)
++ void ajouter(String type)
++ void ajouter(EtapeIG... e)
++ void ajouter(PointDeControleIG pt1, PointDeControleIG pt2)
++ void selectionnerPoint(PointDeControleIG pt)
++ void selectionnerPoint(Point2D point)
++ void selectionnerEtape(EtapeIG etape)
++ void selectionnerArc(ArcIG arc)
++ void toutDeselectionner()
++ void supprimerSelection()
++ void supprimerArcs(EtapeIG e)
++ void renommerSelection(String nouveauNom)
++ void modifierSelection(int temps, int ecartTemps)
++ void modifierSelection(int nbJetons)
++ void deplacerEtape(String id, int x, int y)
++ void inverserEntreeSelection()
++ void inverserSortieSelection()
++ void annulerSelectionPoints()
++ boolean verifierSensFile(PointDeControleIG pt1, PointDeControleIG pt2)
++ void mettreAJourSensFiles()
++ boolean estConnexe(EtapeIG etape)
++ boolean estCompletementConnexe()
++ boolean verifierSortieGuichet()
++ void simuler()
++ void sauvegarder(File fichier)
++ void ouvrir(File fichier)
++ void reagir()
+}
+
+abstract class EtapeIG{
+# String nom
+# String id
+# int posX
+# int posY
+# int largeur
+# int hauteur
+# boolean entree
+# boolean sortie
+# boolean enDeplacement
++ EtapeIG(String nom, String idf, int larg, int haut)
++ boolean estUneEntree()
++ boolean estUneSortie()
++ boolean enDeplacement()
++ void ajouterSuccesseur(EtapeIG ... e)
++ void supprimerSuccesseur(EtapeIG ... e)
++ void deplacerVers(int x, int y)
++ boolean estAccessibleDepuis(EtapeIG etape)
+}
+
+class ActiviteIG extends EtapeIG {
+- int temps
+- int ecartTemps
+- boolean activiteRestreinte
++ ActiviteIG(String nom, String idf, int larg, int haut)
+}
+
+class GuichetIG extends EtapeIG{
+- int nbJetons
++ GuichetIG(String nom, String idf, int larg, int haut)
+}
+
+abstract class ArcIG {
++ ArcIG(PointDeControleIG p1, PointDeControleIG p2)
+}
+
+class LigneDroiteIG extends ArcIG{
++ LigneDroiteIG(PointDeControleIG p1, PointDeControleIG p2)
+}
+
+class CourbeIG extends ArcIG{
+- int x1
+- int y1
+- int x2
+- int y2
++ CourbeIG(PointDeControleIG p1, int x1, int y1, int x2, int y2, PointDeControleIG p2)
+}
+
+class PointDeControleIG {
+- String id
+- int posX
+- int posY
+- boolean visible
++ PointDeControleIG(String nom, Position pos, EtapeIG etape, int x, int y)
+void deplacerVers(int x, int y)
+}
+
+class GestionnaireSuccesseursIG{
++ GestionnaireSuccesseursIG()
++ void ajouter(EtapeIG... etapes)
++ void supprimer(EtapeIG... etapes)
++ boolean contains(EtapeIG etape)
+}
+
+class CorrespondanceEtapes{
++ CorrespondanceEtapes()
++ void ajouter(EtapeIG etig, Etape et)
++ Etape get(EtapeIG e)
++ EtapeIG get(Etape e)
+}
+
+enum LoiClients {
+- int id
+- String nom
+- LoiClients(int id, String nom)
+}
+
+enum Position {
+- int id
+- String nom
+- Position(int id, String nom)
+}
+
+enum SensFile {}
+
+MondeIG --"*" EtapeIG
+MondeIG --"*" ArcIG
+MondeIG --"1" LoiClients
+MondeIG --"1" PointDeControleIG
+MondeIG -"1" CorrespondanceEtapes
+
+EtapeIG "*"-"1" GestionnaireSuccesseursIG
+EtapeIG "1"--"*" PointDeControleIG
+
+GuichetIG --"1" SensFile
+
+ArcIG --"2" PointDeControleIG
+
+PointDeControleIG --"1" Position
+
+CorrespondanceEtapes --"*" EtapeIG
+CorrespondanceEtapes -r-"*" Etape
+
+}
+
+package vues #DDDDDD{
+
+interface Observateur{
+void reagir()
+}
+
+SujetObserve -u-"*" Observateur
+MondeIG .u.|> Observateur
+
+}
+
+package simulation #DDDDDD{
+
+class GestionnaireClients
+class ResultatSimulation
+
+MondeIG -"*" ResultatSimulation
+MondeIG -"1" GestionnaireClients
+}
+
+}
+
+interface Iterable< ? >{}
+
+MondeIG --"*" Point2D
+
+Iterable <|.. MondeIG
+Iterable <|.. GestionnaireSuccesseursIG
+Iterable <|.. EtapeIG
+
+@enduml

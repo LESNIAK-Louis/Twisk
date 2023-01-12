@@ -1,0 +1,29 @@
+@startuml
+
+class TwiskException{
++ TwiskException(String msg)
++ void afficherAlerte()
+}
+
+class ParametresIncorrectsException{
++ ParametresIncorrectsException(String msg)
+}
+
+class MondeException{
++ MondeException(String msg)
+}
+
+class ArcNonValideException{
++ ArcNonValideException(String msg)
+}
+
+class TwiskIOException{
++ TwiskIOException(String msg)
+}
+
+Exception <|-- TwiskException
+TwiskException <|-- ParametresIncorrectsException
+TwiskException <|-- MondeException
+TwiskException <|-- ArcNonValideException
+TwiskException <|-- TwiskIOException
+@enduml

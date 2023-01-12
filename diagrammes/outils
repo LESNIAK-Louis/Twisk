@@ -1,0 +1,82 @@
+@startuml
+
+class ClassLoaderPerso{
++ ClassLoaderPerso(ClassLoader parent)
++ Class<?> loadClass(String name) throws ClassNotFoundException
+- Class<?> getClass(String name) throws ClassNotFoundException
+- byte[] loadClassData(String name) throws IOException
++ void finalize()
+}
+
+class FabriqueIdentifiant{
+- int noEtape
+- {static} FabriqueIdentifiant instance = new FabriqueIdentifiant()
+- FabriqueIdentifiant()
++ {static} FabriqueIdentifiant getInstance()
++ void reset()
+}
+
+class FabriqueNumero{
+- int cptEtape
+- int cptSemaphore
+- int cptLib
+- int cptResultat
+- {static} FabriqueNumero instance = new FabriqueNumero()
+- FabriqueNumero()
++ {static} FabriqueIdentifiant getInstance()
++ void reset()
+}
+
+class KitC{
+- String nomLib
++ KitC()
++ void creerEnvironnement()
++ void copier(InputStream source, File dest) throws IOException
++ void compiler()
++ void creerFichier(String codeC)
++ void construireLaLibrairie()
++ void tuerProcessus(GestionnaireClients clients)
+}
+
+class RessourcesLoader{
+- private Image imageEntree, imageSortie
+- HashMap<String, Image> fonds
+- RessourcesLoader()
++ {static} RessourcesLoader getInstance()
++ Image getFond(String nom)
++ void extraireMondesPreExistants()
+}
+
+class TailleComposants{
+- int largeurFenetre = 850
+- int hauteurFenetre = 600
+    - int largeurActivite = 200
+    - int hauteurActivite = 115
+    - int largeurGuichet = 260
+    - int hauteurGuichet = 65
+    - int tailleEmplacementClient = 30
+    - int taillePointControle = 7
+    - int tailleTriangleFleche = 15
+    - int tailleBoutonOutils = 50
+    - int tailleClients = 5
+    - int tailleSliderClients = 250
+    - int tailleLargeurLoi = 150
+    - int tailleHauteurLoi = 40
+- {static} TailleComposants instance = new TailleComposants()
+- TailleComposants()
++ {static} TailleComposants getInstance()
+}
+
+class ThreadsManager{
+- {static} ThreadsManager instance = new ThreadsManager()
+- ThreadsManager()
++ {static} ThreadsManager getInstance()
++ void lancer(Task task)
++ void detruireTout()
+}
+Thread "*"- ThreadsManager
+
+
+ClassLoader <|-- ClassLoaderPerso
+
+@enduml

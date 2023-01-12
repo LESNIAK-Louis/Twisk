@@ -1,0 +1,144 @@
+@startuml
+package twisk{
+
+package mondeIG #DDDDDD{
+
+class SujetObserve {
+}
+
+SujetObserve <|-- MondeIG
+MondeIG --"*" EtapeIG
+MondeIG --"*" ArcIG
+MondeIG --"1" PointDeControleIG
+
+EtapeIG "1"--"*" PointDeControleIG
+
+ArcIG --"2" PointDeControleIG
+
+}
+
+package vues{
+
+interface Observateur{
++ void reagir()
+}
+
+class EcouteurParametres{
++ EcouteurParametres(MondeIG monde)
++ void handle(ActionEvent actionEvent)
+}
+
+class EcouteurPointDeControle{
++ EcouteurPointDeControle(MondeIG monde, PointDeControleIG pt)
++ void handle(ActionEvent actionEvent)
+}
+
+class EcouteurRenommer {
++ EcouteurRenommer(MondeIG monde)
++ void handle(ActionEvent actionEvent)
+}
+
+class EcouteurResultats{
++ EcouteurResultats(MondeIG monde)
++ void handle(ActionEvent actionEvent)
+}
+
+class VueMondeIG extends Pane implements Observateur{
++ VueMondeIG(MondeIG monde)
++ void reagir()
+}
+
+class VueActiviteIG{
++ VueActiviteIG(MondeIG monde, ActiviteIG etape)
++ void reagir()
+}
+
+class VueGuichetIG{
++ VueGuichetIG(MondeIG monde, GuichetIG etape)
++ void reagir()
+}
+
+abstract class VueArcIG{
++ VueArcIG(MondeIG monde, ArcIG arc)
++ abstract void setBindingPointDeControle(VuePointDeControleIG vuePoint, PointDeControleIG point)
+}
+
+class VueLigneDroiteIG{
++ VueLigneDroiteIG(MondeIG monde, LigneDroiteIG arc)
++ void reagir()
++ void setBindingPointDeControle(VuePointDeControleIG vuePoint, PointDeControleIG point)
+}
+
+class VueCourbeIG{
++ VueCourbeIG(MondeIG monde, CourbeIG arc)
++ void reagir()
++ void setBindingPointDeControle(VuePointDeControleIG vuePoint, PointDeControleIG point)
+}
+
+class VueMenu extends MenuBar{
++ VueMenu(MondeIG monde)
++ void reagir()
+}
+
+class VueOutils{
++ VueOutils(MondeIG monde)
++ void reagir()
+}
+
+class VuePointDeControleIG implements Observateur{
++ VuePointDeControleIG(MondeIG monde, PointDeControleIG point, VueEtapeIG vueEtape)
++ void reagir()
+}
+
+abstract class VueEtapeIG extends VBox implements Observateur{
++ VueEtapeIG(MondeIG monde, EtapeIG etape)
++ void reagir()
+}
+
+class VueResultatsSimulations implements Observateur{
++ VueResultatsSimulations(MondeIG monde)
++ void reagir()
+}
+
+SujetObserve "1"-u-"*" Observateur
+MondeIG .r.|> Observateur
+
+Observateur <|.u. VueArcIG
+
+VueArcIG <|-u- VueLigneDroiteIG
+VueArcIG <|-u- VueCourbeIG
+
+VueMenu .l.|> Observateur
+VueMenu --"1" EcouteurParametres
+VueMenu --"1" EcouteurRenommer
+VueMenu --"1" EcouteurResultats
+
+VueEtapeIG -"1" EtapeIG
+VueEtapeIG <|-- VueActiviteIG
+VueEtapeIG <|-- VueGuichetIG
+
+
+VueArcIG -l-|> Pane
+VueArcIG -"1" ArcIG
+
+VuePointDeControleIG -d-|> Circle
+VuePointDeControleIG -"1" PointDeControleIG
+VuePointDeControleIG -d-"1" EcouteurPointDeControle
+
+VueOutils -r-|> AnchorPane
+VueOutils .r.|> Observateur
+
+VueResultatsSimulations --|> HBox
+
+EcouteurPointDeControle --"1" PointDeControleIG
+}
+
+}
+
+interface EventHandler< Event >
+
+EcouteurParametres .up.|> EventHandler
+EcouteurRenommer .up.|> EventHandler
+EcouteurResultats .up.|> EventHandler
+EcouteurPointDeControle .up.|> EventHandler
+@enduml

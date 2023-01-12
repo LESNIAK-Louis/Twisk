@@ -1,0 +1,70 @@
+.text{
+    -fx-font-weight: bold;
+    -fx-text-fill: #313A4A ;
+}
+
+.list-cell {
+    -fx-background-color: #EBEDEE;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #E3E3E3;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+}
+
+.list-cell:filled:selected {
+    -fx-background-color: #C3C3C3;
+    -fx-text-fill: #313A4A ;
+}
+
+.resultat{
+    -fx-spacing: 5;
+    -fx-padding: 5,0,0,5;
+}
+
+.titre-resultat{
+    -fx-font: 16 arial;
+    -fx-alignment: center;
+}
+
+.sous-titre-resultat{
+    -fx-font: 14 arial;
+    -fx-alignment: center;
+}
+
+.sous-titre-resultat-activite{
+    -fx-font: 14 arial;
+    -fx-alignment: center;
+    -fx-text-fill: #5882F8;
+}
+
+.sous-titre-resultat-guichet{
+    -fx-font: 14 arial;
+    -fx-alignment: center;
+    -fx-text-fill: #7CD651;
+}
+
+.donnees-resultat-monde{
+    -fx-font: 12 arial;
+    -fx-alignment: center;
+}
+
+.donnees-resultat-activite{
+    -fx-font: 12 arial;
+    -fx-alignment: center;
+    -fx-text-fill: #5882F8;
+}
+
+.donnees-resultat-guichet{
+    -fx-font: 12 arial;
+    -fx-alignment: center;
+    -fx-text-fill: #7CD651;
+}
+
+.separator *.line{
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-border-color: #DFE1E2;
+
+}

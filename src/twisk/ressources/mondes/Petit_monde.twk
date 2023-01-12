@@ -1,0 +1,235 @@
+{
+  "etapes" : {
+    "1" : {
+      "type" : "guichet",
+      "id" : "1",
+      "nom" : "File tobbogan",
+      "posX" : 16,
+      "posY" : 21,
+      "largeur" : 260,
+      "hauteur" : 65,
+      "entree" : true,
+      "sortie" : false,
+      "successeurs" : {
+        "listeSuccesseurs" : [ {
+          "type" : "activite",
+          "id" : "5",
+          "nom" : "Tobbogan",
+          "posX" : 254,
+          "posY" : 155,
+          "largeur" : 200,
+          "hauteur" : 115,
+          "entree" : false,
+          "sortie" : false,
+          "successeurs" : {
+            "listeSuccesseurs" : [ {
+              "type" : "activite",
+              "id" : "3",
+              "nom" : "Piscine",
+              "posX" : 564,
+              "posY" : 154,
+              "largeur" : 200,
+              "hauteur" : 115,
+              "entree" : false,
+              "sortie" : false,
+              "successeurs" : {
+                "listeSuccesseurs" : [ {
+                  "type" : "guichet",
+                  "id" : "2",
+                  "nom" : "File plage",
+                  "posX" : 347,
+                  "posY" : 376,
+                  "largeur" : 260,
+                  "hauteur" : 65,
+                  "entree" : false,
+                  "sortie" : false,
+                  "successeurs" : {
+                    "listeSuccesseurs" : [ {
+                      "type" : "activite",
+                      "id" : "4",
+                      "nom" : "Plage",
+                      "posX" : 74,
+                      "posY" : 352,
+                      "largeur" : 200,
+                      "hauteur" : 115,
+                      "entree" : false,
+                      "sortie" : true,
+                      "successeurs" : {
+                        "listeSuccesseurs" : [ ]
+                      },
+                      "controles" : {
+                        "BAS" : {
+                          "id" : "Activité44Bas",
+                          "position" : "BAS",
+                          "posX" : 174,
+                          "posY" : 467,
+                          "etape" : "4"
+                        },
+                        "HAUT" : {
+                          "id" : "Activité44Haut",
+                          "position" : "HAUT",
+                          "posX" : 174,
+                          "posY" : 352,
+                          "etape" : "4"
+                        },
+                        "DROITE" : {
+                          "id" : "Activité44Droit",
+                          "position" : "DROITE",
+                          "posX" : 274,
+                          "posY" : 409,
+                          "etape" : "4"
+                        },
+                        "GAUCHE" : {
+                          "id" : "Activité44Gauche",
+                          "position" : "GAUCHE",
+                          "posX" : 74,
+                          "posY" : 409,
+                          "etape" : "4"
+                        }
+                      },
+                      "temps" : 4,
+                      "ecartTemps" : 2,
+                      "activiteRestreinte" : false
+                    } ]
+                  },
+                  "controles" : {
+                    "DROITE" : {
+                      "id" : "Guichet22Droit",
+                      "position" : "DROITE",
+                      "posX" : 607,
+                      "posY" : 408,
+                      "etape" : "2"
+                    },
+                    "GAUCHE" : {
+                      "id" : "Guichet22Gauche",
+                      "position" : "GAUCHE",
+                      "posX" : 347,
+                      "posY" : 408,
+                      "etape" : "2"
+                    }
+                  },
+                  "nbJetons" : 2,
+                  "sensFile" : "GAUCHE"
+                } ]
+              },
+              "controles" : {
+                "BAS" : {
+                  "id" : "Activité33Bas",
+                  "position" : "BAS",
+                  "posX" : 664,
+                  "posY" : 269,
+                  "etape" : "3"
+                },
+                "HAUT" : {
+                  "id" : "Activité33Haut",
+                  "position" : "HAUT",
+                  "posX" : 664,
+                  "posY" : 154,
+                  "etape" : "3"
+                },
+                "DROITE" : {
+                  "id" : "Activité33Droit",
+                  "position" : "DROITE",
+                  "posX" : 764,
+                  "posY" : 211,
+                  "etape" : "3"
+                },
+                "GAUCHE" : {
+                  "id" : "Activité33Gauche",
+                  "position" : "GAUCHE",
+                  "posX" : 564,
+                  "posY" : 211,
+                  "etape" : "3"
+                }
+              },
+              "temps" : 4,
+              "ecartTemps" : 2,
+              "activiteRestreinte" : false
+            } ]
+          },
+          "controles" : {
+            "BAS" : {
+              "id" : "Activité55Bas",
+              "position" : "BAS",
+              "posX" : 354,
+              "posY" : 270,
+              "etape" : "5"
+            },
+            "HAUT" : {
+              "id" : "Activité55Haut",
+              "position" : "HAUT",
+              "posX" : 354,
+              "posY" : 155,
+              "etape" : "5"
+            },
+            "DROITE" : {
+              "id" : "Activité55Droit",
+              "position" : "DROITE",
+              "posX" : 454,
+              "posY" : 212,
+              "etape" : "5"
+            },
+            "GAUCHE" : {
+              "id" : "Activité55Gauche",
+              "position" : "GAUCHE",
+              "posX" : 254,
+              "posY" : 212,
+              "etape" : "5"
+            }
+          },
+          "temps" : 4,
+          "ecartTemps" : 2,
+          "activiteRestreinte" : false
+        } ]
+      },
+      "controles" : {
+        "DROITE" : {
+          "id" : "Guichet11Droit",
+          "position" : "DROITE",
+          "posX" : 276,
+          "posY" : 53,
+          "etape" : "1"
+        },
+        "GAUCHE" : {
+          "id" : "Guichet11Gauche",
+          "position" : "GAUCHE",
+          "posX" : 16,
+          "posY" : 53,
+          "etape" : "1"
+        }
+      },
+      "nbJetons" : 2,
+      "sensFile" : "DROITE"
+    },
+    "2" : "2",
+    "3" : "3",
+    "4" : "4",
+    "5" : "5"
+  },
+  "arcs" : [ {
+    "type" : "ligneDroite",
+    "p1" : "Guichet11Droit",
+    "p2" : "Activité55Haut"
+  }, {
+    "type" : "ligneDroite",
+    "p1" : "Activité55Droit",
+    "p2" : "Activité33Gauche"
+  }, {
+    "type" : "courbe",
+    "p1" : "Activité33Bas",
+    "p2" : "Guichet22Droit",
+    "x1" : 665,
+    "y1" : 403,
+    "x2" : 663,
+    "y2" : 412
+  }, {
+    "type" : "ligneDroite",
+    "p1" : "Guichet22Gauche",
+    "p2" : "Activité44Droit"
+  } ],
+  "nbClients" : 5,
+  "moyenneLoi" : 4.0,
+  "ecartTypeLoi" : 2.0,
+  "loiClient" : "UNIFORME",
+  "resultatsSimulations" : [ ]
+}

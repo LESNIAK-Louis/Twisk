@@ -1,0 +1,231 @@
+.fond{
+    -fx-background-image: url('images/fond_grille.png');
+}
+
+.outils{
+    -fx-background-image: url('images/fond_grille.png');
+    -fx-padding: 0 10 0 10;
+    -fx-font: 15 arial;
+    -fx-font-weight: bold;
+    -fx-text-fill: #313A4A ;
+}
+
+.outils-clients{
+    -fx-alignment: center;
+    -fx-spacing: 4;
+}
+
+.bouton-ajouter-activite{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #5882F8, #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0 0 1 0, 0 1 2 1, 1 2 3 2, 7 2 3 2;
+    -fx-background-radius: 7, 6, 5, 4, 0;
+    -fx-font: 25 arial;
+    -fx-font-weight: bold;
+    -fx-text-fill: #5882F8;
+    -fx-alignment: center;
+}
+
+.bouton-ajouter-activite:hover{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #5882F8, #E3E3E3;
+}
+
+.bouton-ajouter-activite:pressed{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #5882F8, #C3C3C3;
+}
+
+.bouton-ajouter-guichet{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #7CD651, #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0 0 1 0, 0 1 2 1, 1 2 3 2, 7 2 3 2;
+    -fx-background-radius: 7, 6, 5, 4, 0;
+    -fx-font: 25 arial;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7CD651;
+    -fx-alignment: center;
+}
+
+.bouton-ajouter-guichet:hover{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #7CD651, #E3E3E3;
+}
+
+.bouton-ajouter-guichet:pressed{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #7CD651, #C3C3C3;
+}
+
+.bouton-lancer-simulation{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #313A4A , #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0 0 1 0, 0 1 2 1, 1 2 3 2, 7 2 3 2;
+    -fx-background-radius: 7, 6, 5, 4, 0;
+    -fx-font: 25 arial;
+    -fx-font-weight: bold;
+    -fx-text-fill: #313A4A ;
+    -fx-alignment: center;
+}
+
+.bouton-lancer-simulation:hover{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #313A4A , #E3E3E3;
+}
+
+.bouton-lancer-simulation:pressed{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #313A4A , #C3C3C3;
+}
+
+.bouton-arreter-simulation{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #FF5757, #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0 0 1 0, 0 1 2 1, 1 2 3 2, 7 2 3 2;
+    -fx-background-radius: 7, 6, 5, 4, 0;
+    -fx-font: 25 arial;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FF5757;
+    -fx-alignment: center;
+}
+
+.bouton-arreter-simulation:hover{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #FF5757, #E3E3E3;
+}
+
+.bouton-arreter-simulation:pressed{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #FF5757, #C3C3C3;
+}
+
+
+.titre-etape{
+    -fx-font: 12 arial;
+    -fx-font-weight: bold;
+    -fx-text-fill: #313A4A ;
+    -fx-alignment: center;
+    -fx-padding: 10 0 0 0;
+    -fx-spacing: 5;
+}
+
+.activite{
+    -fx-alignment: center;
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #5882F8, #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0 0 1 0, 0 1 2 1, 1 2 3 2, 5 2 3 2;
+}
+
+.activite:hover{
+    -fx-cursor: hand;
+}
+
+.activite-select{
+
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+}
+
+.zone-client-activite{
+    -fx-background-color: #F1F2F2;
+    -fx-background-insets: 5 10 5 10;
+    -fx-alignment: center;
+}
+
+.zone-client-guichet{
+    -fx-background-color: #F1F2F2;
+    -fx-background-insets: 2;
+    -fx-alignment: center;
+}
+
+.guichet{
+    -fx-alignment: center;
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #7CD651, #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0 0 1 0, 0 1 2 1, 1 2 3 2, 5 2 3 2;
+}
+
+.guichet:hover{
+    -fx-cursor: hand;
+}
+
+.guichet-select{
+
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+}
+
+.point-controle{
+    -fx-fill: #FFFFFF;
+    -fx-stroke: #DFE1E2;
+    -fx-stroke-width: 2px;
+}
+
+.point-controle:hover{
+    -fx-stroke: #313A4A ;
+    -fx-cursor: crosshair;
+}
+
+.arc{
+    -fx-stroke: #313A4A ;
+    -fx-stroke-width: 3;
+}
+
+.arc:hover{
+    -fx-cursor: hand;
+}
+
+.arc-select{
+    -fx-stroke: #000000;
+    -fx-stroke-width: 5;
+}
+
+.arc-select:hover{
+    -fx-cursor: hand;
+}
+
+.tete-fleche{
+    -fx-fill: #313A4A ;
+    -fx-stroke-width: 0;
+}
+
+.tete-fleche:hover{
+    -fx-cursor: hand;
+}
+
+.tete-fleche-select{
+    -fx-fill: #000000;
+    -fx-stroke-width: 2;
+    -fx-stroke: #000000;
+}
+
+.tete-fleche-select:hover{
+    -fx-cursor: hand;
+}
+
+.client{
+    -fx-fill: #313A4A ;
+}
+
+.tooltip{
+    -fx-font: 12 arial;
+}
+
+.slider .track{
+    -fx-background-color: #313A4A ;
+    -fx-pref-height: 3;
+}
+
+.slider .thumb{
+    -fx-background-color: #313A4A ;
+    -fx-pref-height: 25;
+    -fx-pref-width: 5;
+}
+
+.slider .thumb:hover{
+    -fx-cursor: hand;
+}
+
+.combo-box{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0 0 1 0, 0 1 2 1, 1 2 3 2;
+    -fx-background-radius: 7, 6, 5, 0;
+    -fx-font: 14 arial;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FF5757;
+    -fx-alignment: center;
+}
+
+.combo-box-base:hover{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #E3E3E3;
+}
+
+.combo-box-base:pressed{
+    -fx-background-color: #E8EAEC, #DDE0E2, #CBCED2, #C3C3C3;
+}

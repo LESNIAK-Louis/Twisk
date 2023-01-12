@@ -1,0 +1,79 @@
+@startuml
+class Client{
+- int numeroClient
+- int rang
+- Etape etape
+- int tempsDansMonde
+- int tempsAttenteGuichet, tempsDansActivite
++ Client(int numero)
++ void allerA(Etape etape, int rang)
++ void mettreAJourStatistiques()
+}
+
+class GestionnaireClients{
++ GestionnaireClients()
++ GestionnaireClients(int nbClients)
++ void allerA(int numeroClient, Etape etape, int rang)
++ void nettoyer()
++ Iterator<Client> iterator()
+}
+
+class ResultatSimulation{
+- int id
+- int nbClients
+- double moyenneLoi, ecartTypeLoi
+- int[] tempsDansMonde, tempsDansActivite, tempsDansGuichet
++ ResultatSimulation()
++ ResultatSimulation(GestionnaireClients clients)
++ int calculerTempsMinDansMonde()
++ int calculerTempsMaxDansMonde()
++ int calculerTempsMinDansActivite()
++ int calculerTempsMaxDansActivite()
++ int calculerTempsMinDansGuichet()
++ int calculerTempsMaxDansGuichet()
++ double calculerTempsMoyenDansMonde()
++ double calculerTempsMoyenDansActivite()
++ double calculerTempsMoyenDansGuichet()
+}
+
+class Simulation{
+- int nbClients
++ native int[] start_simulation(int nbEtapes, int nbServices, int nbClients, int[] tabJetonsServices)
++ native int[] ou_sont_les_clients(int nbEtapes, int nbClients)
++ native void nettoyage()
++ public Simulation()
++ void simuler(Monde monde)
++ void miseAJourClientsEtape(Etape e, int[] clients)
+}
+
+package "outils" #DDDDDD{
+class KitC{
+}
+}
+
+package "mondeIG" #DDDDDD{
+class SujetObserve{
+}
+enum LoiClients{
+}
+}
+
+package "monde" #DDDDDD{
+class Etape{
+}
+}
+
+interface Iterable <Client> {}
+
+GestionnaireClients ..> Iterable
+
+GestionnaireClients -"*" Client
+Client -"1" Etape
+ResultatSimulation -"1" LoiClients
+ResultatSimulation "*"- GestionnaireClients
+Simulation --"1" GestionnaireClients
+Simulation -"1" KitC
+
+SujetObserve <|-- Simulation
+
+@enduml

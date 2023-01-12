@@ -1,0 +1,90 @@
+@startuml
+class Monde {
++ Monde()
++ void aCommeEntree(Etape ... etapes)
++ void aCommeSortie(Etape ... etapes)
++ void ajouter(Etape... etapes)
++ String toC()
++ Iterator<Etape> iterator()
+}
+
+abstract class Etape{
+- String nom
+- int numero
+
++ Etape(String nom)
++ void ajouterSuccesseur(Etape ... e)
++ boolean estUneActivite()
++ boolean estUnGuichet()
++ boolean estUneEntree()
++ boolean estUneSortie()
++ String toC()
++ Iterator<Etape> iterator()
+}
+
+class Activite {
+# int temps
+# int ecartTemps
++ Activite(String nom)
++ Activite(String nom, int t, int e)
++ String toC()
+}
+
+class ActiviteRestreinte {
++ ActiviteRestreinte(String nom)
++ ActiviteRestreinte(String nom, int t, int e)
++ String toC()
+}
+
+class Guichet{
+# int nbJetons
+- int numeroSemaphore
++ Guichet(String nom)
++ Guichet(String nom, int nb)
++ String toC()
+}
+
+class SasEntree{
+- int loiClient
+- double moyenneLoi
+- double ecartTypeLoi
++ SasEntree()
++ String toC()
+}
+
+class SasSortie{
++ SasSortie()
++ String toC()
+}
+
+class GestionnaireEtapes {
++ GestionnaireEtapes()
++ void ajouter(Etape... etapes)
++ Iterator<Etape> iterator()
+}
+
+
+class GestionnaireSuccesseurs {
++ GestionnaireSuccesseurs()
++ void ajouter(Etape... etapes)
++ Etape getSuccesseur()
++ Iterator<Etape> iterator()
+}
+
+interface Iterable <Etape>{}
+
+Monde -"1" GestionnaireEtapes
+Monde -"2" Etape
+GestionnaireSuccesseurs "1"- Etape
+Etape <|-- Activite
+Etape <|-- Guichet
+Activite <|-- SasEntree
+Activite <|-- SasSortie
+Activite <|-- ActiviteRestreinte
+
+Iterable <... Etape
+Iterable <... Monde
+Iterable <... GestionnaireSuccesseurs
+Iterable <... GestionnaireEtapes
+
+@enduml
