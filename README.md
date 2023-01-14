@@ -17,7 +17,7 @@ Il est possible de sauvegarder le parcours et à chaque simulation, vous pouvez 
 ## Dépendances
 
 - OS : Ubuntu 20.04
-- Sauvegarde JSON : [Dossier de dépendances](diagrammes/ressources/JSON)
+- Sauvegarde JSON : [Dossier de dépendances](ressources/JSON)
 
 ## Diagrammes des classes
 monde :
